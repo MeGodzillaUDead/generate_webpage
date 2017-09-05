@@ -20,12 +20,21 @@ def body_thru_end():
     #opening <body> tag
     output_file.write('<body>\n')
 
+    import_body_text(output_file)
+
     #close <body> and <html> tags
     output_file.write('</body>\n')
     output_file.write('</html>\n')
     
     output_file.close()
 
+def import_body_text(working_file):
+    body = open("body.txt","r")
+    text_list = body.readlines()
+    for i in text_list:
+        working_file.write(i[:-3] + " ")
+    body.close()
+    
 def main():
     start_thru_head()
     body_thru_end()
