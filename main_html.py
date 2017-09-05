@@ -31,8 +31,14 @@ def body_thru_end():
 def import_body_text(working_file):
     body = open("body.txt","r")
     text_list = body.readlines()
+    working_file.write('<p>\n')
     for i in text_list:
-        working_file.write(i[:-3] + " ")
+        if i == "\n":
+            working_file.write('\n</p>\n')
+            working_file.write('<p>\n')
+        else:
+            working_file.write(i[:-3] + " ")
+    working_file.write('\n</p>\n')
     body.close()
     
 def main():
