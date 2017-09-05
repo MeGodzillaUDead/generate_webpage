@@ -15,6 +15,11 @@ def write_file(image_list):
 		output_file.write('<a target="_blank" href="' + img + '">\n')
 		output_file.write('<img src="' + img + '" alt="' + img + '">\n')
 		output_file.write('</a>\n')
-imgs = images_list()
-print(imgs)
-write_file(imgs)
+
+def main():
+    imgs = images_list()
+    print(imgs)
+    write_file(imgs)
+
+if __name__ == "__main__":
+    main()
