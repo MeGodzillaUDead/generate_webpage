@@ -20,7 +20,14 @@ def body_thru_end():
     #opening <body> tag
     output_file.write('<body>\n')
 
+    output_file.write('<center><h1>Local River Log Entry ' + '' + ' how to do date?</h1></center>\n')
+    output_file.write('<hr width="75%" />\n')
+
+    output_file.write('<center><h2>'+"your first heading here"+'</h2></center>\n')
     import_body_text(output_file)
+
+    output_file.write('<center><h2>Pictures, Maps, Et Cetera</h2></center>\n')
+    #use the i&t shit here
 
     #close <body> and <html> tags
     output_file.write('</body>\n')
@@ -29,15 +36,18 @@ def body_thru_end():
     output_file.close()
 
 def import_body_text(working_file):
+    #imports and parses paragraphs from body.txt
     body = open("body.txt","r")
     text_list = body.readlines()
     working_file.write('<p>\n')
+    
     for i in text_list:
         if i == "\n":
             working_file.write('\n</p>\n')
             working_file.write('<p>\n')
         else:
             working_file.write(i[:-3] + " ")
+    
     working_file.write('\n</p>\n')
     body.close()
     
