@@ -1,6 +1,7 @@
 from datetime import date
+from prompts import user_questions
 
-def start_thru_head():
+def start_thru_head(title):
     output_file = open("index.html","w")
 
     #opening tags
@@ -9,14 +10,14 @@ def start_thru_head():
     output_file.write('<head>\n')
 
     #title
-    output_file.write('<title>'+"need to implement functionality"+'</title>\n')
+    output_file.write('<title>'+ title +'</title>\n')
 
     #close the <head> don't forget to call the ending function to close the <html> tag
     output_file.write('</head>\n') 
 
     output_file.close()
 
-def body_thru_end():
+def body_thru_end(heading):
     output_file = open("index.html","a")
     
     #opening <body> tag
@@ -28,7 +29,7 @@ def body_thru_end():
     output_file.write('<center><h1>Local River Log Entry ' + d.strftime("%m/%d/%y") + ' </h1></center>\n')
     output_file.write('<hr width="75%" />\n')
 
-    output_file.write('<center><h2>'+"your first heading here"+'</h2></center>\n')
+    output_file.write('<center><h2>'+ heading +'</h2></center>\n')
     import_body_text(output_file)
 
     output_file.write('<center><h2>Pictures, Maps, Et Cetera</h2></center>\n')
@@ -57,8 +58,9 @@ def import_body_text(working_file):
     body.close()
     
 def main():
-    start_thru_head()
-    body_thru_end()
+    input = user_questions()
+    start_thru_head(input[0])
+    body_thru_end(input[1])
 
 if __name__ == "__main__":
     main()
