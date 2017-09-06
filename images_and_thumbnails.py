@@ -11,15 +11,18 @@ def images_list():
 
 def write_file(image_list):
 	output_file = open("index.html","a")
+	output_file.write('<center>\n')
 	for img in image_list:
 		output_file.write('<a target="_blank" href="' + img + '">\n')
 		output_file.write('<img src="' + img + '" alt="' + img + '">\n')
 		output_file.write('</a>\n')
+	output_file.write('</center>\n')
 
 def main():
+    print("")
     imgs = images_list()
-    print(imgs)
     write_file(imgs)
+    print("")
 
 if __name__ == "__main__":
     main()

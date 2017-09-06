@@ -31,10 +31,12 @@ def body_thru_end(heading):
     d = date.today()
     
     output_file.write('<center><h1>Local River Log Entry ' + d.strftime("%m/%d/%y") + ' </h1></center>\n')
-    output_file.write('<hr width="75%" />\n')
+    output_file.write('<hr width="61.8%" />\n')
 
     output_file.write('<center><h2>'+ heading +'</h2></center>\n')
     import_body_text(output_file)
+    output_file.write('<br />\n')
+    output_file.write('<hr width="61.8%" />\n')
 
     output_file.write('<center><h2>Pictures, Maps, Et Cetera</h2></center>\n')
     #close the file b/c i&t will open it
@@ -42,6 +44,8 @@ def body_thru_end(heading):
     images_and_thumbnails.main()
     #reopen the file because i&t closed it
     output_file = open("index.html","a")
+    output_file.write('<br />\n')
+    output_file.write('<hr width="61.8%" />\n')
 
     #close <body> and <html> tags
     output_file.write('</body>\n')
