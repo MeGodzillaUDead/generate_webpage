@@ -1,3 +1,5 @@
+from datetime import date
+
 def start_thru_head():
     output_file = open("index.html","w")
 
@@ -20,7 +22,10 @@ def body_thru_end():
     #opening <body> tag
     output_file.write('<body>\n')
 
-    output_file.write('<center><h1>Local River Log Entry ' + '' + ' how to do date?</h1></center>\n')
+    #get the current date for the entry and write it
+    d = date.today()
+    
+    output_file.write('<center><h1>Local River Log Entry ' + d.strftime("%m/%d/%y") + ' </h1></center>\n')
     output_file.write('<hr width="75%" />\n')
 
     output_file.write('<center><h2>'+"your first heading here"+'</h2></center>\n')
