@@ -1,5 +1,6 @@
 from datetime import date
 from prompts import user_questions
+import images_and_thumbnails
 
 def start_thru_head(title):
     output_file = open("index.html","w")
@@ -33,7 +34,11 @@ def body_thru_end(heading):
     import_body_text(output_file)
 
     output_file.write('<center><h2>Pictures, Maps, Et Cetera</h2></center>\n')
-    #use the i&t shit here
+    #close the file b/c i&t will open it
+    output_file.close()
+    images_and_thumbnails.main()
+    #reopen the file because i&t closed it
+    output_file = open("index.html","a")
 
     #close <body> and <html> tags
     output_file.write('</body>\n')
