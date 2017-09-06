@@ -13,6 +13,9 @@ def start_thru_head(title):
     #title
     output_file.write('<title>'+ title +'</title>\n')
 
+    #css
+    output_file.write('<link rel="stylesheet" href="style.css">\n')
+
     #close the <head> don't forget to call the ending function to close the <html> tag
     output_file.write('</head>\n') 
 
